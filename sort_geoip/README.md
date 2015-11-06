@@ -1,5 +1,5 @@
 Just a litle programm to create statistics from a logfile. 
-It was a little competition exercise, so notheing special ;)
+It was a little competition exercise, so nothing special ;)
 
 If you want to use it, load the current GeoIP-CSV-database from https://dev.maxmind.com/geoip/legacy/geolite/.
 The log should have the ip in the second column, otherwise it won't work.

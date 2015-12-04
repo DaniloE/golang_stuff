@@ -3,8 +3,6 @@ package main
 import (
     "fmt"
     "time"
-    "math"
-    "strconv"
 )
 
 /*
@@ -14,26 +12,29 @@ https://projecteuler.net/problem=5
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 */
 
-func main() {
 
+func lcm(a, b int64) int64 {
+    return a * b / gcd(a, b)
+}
+
+func gcd(a, b int64) int64 {
+    c := a % b
+    if c == 0 {
+        return b;       
+    }
+    return gcd(b, c)
+}
+
+func main() {
     start := time.Now()
-    last:=20
-    number:=last-1
     
-    for {
-        number++
-        nope:=false
-        for k := last;k>1;k-- {
-            if math.Mod(float64(number),float64(k)) != 0 {
-                nope=true
-                break
-            }
-        }
-        if nope == false {
-            break
-        }
-    }    
-    fmt.Println("Lastprime: ", strconv.Itoa(number))
+    var number, i int64 = 1, 2
+    var ende int64  = 20
+
+    for ; i <= ende; i++ {
+        number = lcm(number, i)
+    }
+    fmt.Println("Zahl: ", number)
     fmt.Println("Laufzeit: ", time.Since(start))
 }
 

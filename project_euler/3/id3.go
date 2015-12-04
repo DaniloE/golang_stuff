@@ -15,16 +15,6 @@ The prime factors of 13195 are 5, 7, 13 and 29.
 What is the largest prime factor of the number 600851475143 ?
 */
 
-func isprime(x int) bool {
-    if math.Mod(float64(x),2) == 0 {
-        return false
-    } else if math.Mod(float64(x),3) == 0 {
-        return false
-    }
-    return true
-}
-
-
 func main() {
 
     start := time.Now()
@@ -35,7 +25,7 @@ func main() {
     for number > 1{
         i++
         testint:=big.NewInt(i)
-        if testint.ProbablyPrime(1) == true {
+        if testint.ProbablyPrime(2) == true {
             if math.Mod(float64(number),float64(i)) == 0 {
                 number = number/i
             }
